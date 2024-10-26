@@ -27,6 +27,6 @@ func (s *SequenceError) Is(err error) bool {
 	return errors.Is(s.Err, err)
 }
 
-func (s *SequenceError) Unwrap(err error) error {
+func (s *SequenceError) Unwrap() error {
 	return s.Err
 }

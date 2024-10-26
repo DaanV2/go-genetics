@@ -60,8 +60,6 @@ func (reader *FastaReader) DecodeAll() error {
 			reader.AddData(str)
 		}
 	}
-
-	return nil
 }
 
 func (reader *FastaReader) Sequences() []*Sequence {
