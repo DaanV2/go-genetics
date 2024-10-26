@@ -1,5 +1,5 @@
 assembly:
-	go build -gcflags="-S" ./pkg/nucleic_acid_codes > nucleic_acid_codes.S 2>&1
+	go build -gcflags="-S" ./pkg/codes > codes.S 2>&1
 
 test:
 	go test ./... --cover -coverprofile=reports/coverage
