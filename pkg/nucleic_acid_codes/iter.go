@@ -1,4 +1,4 @@
-package nucleic_acids_codes
+package nucleic_acid_codes
 
 import "iter"
 
