@@ -1,8 +1,8 @@
 assembly:
-	go build -gcflags="-S" ./pkg/math/statistics > statistics.S 2>&1
+	go build -gcflags="-S" ./pkg/nucleic_acid_codes > nucleic_acid_codes.S 2>&1
 
 test:
-	go test ./... --parallel 4 --cover -coverprofile=reports/coverage
+	go test ./... --cover -coverprofile=reports/coverage
 
 build:
 	go build ./...
