@@ -12,11 +12,21 @@ type Encoder struct {
 	endWithAsterik bool // End the sequence with an asterik
 }
 
-func NewEncoder() *Encoder {
-	return &Encoder{
+func NewEncoder(options ...EncoderOption) (*Encoder, error) {
+	encoder := &Encoder{
 		printWidth:     80,
 		endWithNewLine: true,
+		endWithAsterik: false,
 	}
+
+	for _, o := range options {
+		err := o.apply(encoder)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	return encoder, nil
 }
 
 func (e *Encoder) Encode(writer io.Writer, sequences ...*Sequence) error {
@@ -62,7 +72,7 @@ func (e *Encoder) encodeItem(writer io.Writer, seq *Sequence) error {
 		}
 		// Have we reached the end? put a * at the end
 		if len(data) == 0 && e.endWithAsterik {
-			if err := bwriter.WriteString("*"); err != nil {
+			if err = bwriter.WriteString("*"); err != nil {
 				return err
 			}
 		}
