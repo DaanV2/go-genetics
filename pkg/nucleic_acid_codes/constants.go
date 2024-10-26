@@ -1,6 +1,10 @@
 package nucleic_acid_codes
 
 const (
+	UNKNOWN_STRING = "Unknown"
+)
+
+const (
 	Adenine                  Code = 'A' // Adenine
 	Cytosine                 Code = 'C' // Cytosine
 	Guanine                  Code = 'G' // Guanine
@@ -114,5 +118,5 @@ func Description(code Code) string {
 		return "Gap of indeterminate length"
 	}
 
-	return "Unknown"
+	return UNKNOWN_STRING
 }
